@@ -1,0 +1,14 @@
+Push yocto image to your android
+---------------------------------
+
+adb root
+adb push ather-dev-image-apalis-imx6.ext4 /sdcard/
+adb shell --> go to android console
+
+Mount necessary folders in android
+----------------------------------
+ busybox mount -o loop -t ext4 ather-dev-image-apalis-imx6.ext4 yocto
+ busybox mount --bind /dev dev/
+
+ Chroot
+ ------
