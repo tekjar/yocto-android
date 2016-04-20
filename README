@@ -4,6 +4,23 @@ Push yocto image to your android
 adb root
 adb push ather-dev-image-apalis-imx6.ext4 /sdcard/
 adb shell --> go to android console
+busybox uname -a (or) cat /proc/version
+
+```
+busybox uname -a
+Linux localhost 3.4.0-cyanogenmod-g9f98af5 #1 SMP PREEMPT Tue Dec 1 17:42:01 PST 2015 armv7l GNU/Linux
+```
+
+armv7l 	-> ARMv7 VFPv3-D16 port, softfp ABI (little endian without hardfloat)
+armv7hl -> ARMv7 VFPv3-D16 port, hardfp ABI (little endian with hardfloat)
+
+Get proper yocto rootfs based on your android hardware. Verify on a .so
+
+```
+readelf -A libm.so
+```
+If `Tag_ABI_VFP_args` tag exists, then it is hardfloat
+
 
 Mount necessary folders in android
 ----------------------------------
@@ -12,3 +29,4 @@ Mount necessary folders in android
 
  Chroot
  ------
+ chroot . /bin/bash
