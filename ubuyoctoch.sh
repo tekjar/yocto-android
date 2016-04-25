@@ -41,7 +41,5 @@ for f in dev dev/pts proc sys run ; do mount -o bind /$f $mnt/$f ; done
 echo "nameserver 8.8.8.8" > $mnt/etc/resolv.conf
 echo "nameserver 8.8.4.4" >> $mnt/etc/resolv.conf
 echo "127.0.0.1 localhost" > $mnt/etc/hosts
-echo "Ubuntu is configured with SSH and VNC servers that can be accessed from the IP:"
-ifconfig eth0
 echo " "
 chroot $mnt /bin/bash
