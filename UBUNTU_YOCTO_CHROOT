@@ -1,0 +1,2 @@
+* apt-get install binfmt-support qemu qemu-user-static debootstrap
+* cp /usr/bin/qemu-arm-static usr/bin
